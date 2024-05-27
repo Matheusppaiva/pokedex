@@ -1,0 +1,34 @@
+.pokemon-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .pokemon-details img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .pokemon-details h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .pokemon-details p {
+    font-size: 1.2em;
+    margin: 5px 0;
+  }
+  
+  .pokemon-types {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .pokemon-type {
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    padding: 5px 10px;
+  }
+  
