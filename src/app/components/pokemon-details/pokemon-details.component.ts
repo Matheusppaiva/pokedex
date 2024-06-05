@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokeapiService } from 'src/app/services/pokeapi.service';
+import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -9,7 +10,7 @@ import { PokeapiService } from 'src/app/services/pokeapi.service';
 })
 export class PokemonDetailsComponent implements OnInit {
 
-  pokemon: any;
+  pokemon: Pokemon | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,4 +26,12 @@ export class PokemonDetailsComponent implements OnInit {
     }
   }
 
+  getTypeClass(pokemon: Pokemon | null): string {
+    if (!pokemon || !pokemon.types.length) {
+      return '';
+    }
+    const primaryType = pokemon.types[0].type.name.toLowerCase();
+    return primaryType;
+  }
 }
+

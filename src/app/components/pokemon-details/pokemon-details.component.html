@@ -1,21 +1,25 @@
 <div *ngIf="pokemon" class="pokemon-details">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image">
-          <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
-        </div>
-        <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Altura: {{ pokemon.height }}</p>
-        <p>Peso: {{ pokemon.weight }}</p>
-        <p>Tipo: 
-          <span *ngFor="let type of pokemon.types; let i = index">
-            {{ type.type.name | titlecase }}<span *ngIf="i < pokemon.types.length - 1">, </span>
-          </span>
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  
+  <mat-card [ngClass]="getTypeClass(pokemon)">
+    <div class="pokemon-card-content">
+      <div class="pokemon-info">
+        <mat-card-header>
+          <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Altura: {{ pokemon.height }}</p>
+          <p>Peso: {{ pokemon.weight }}</p>
+          <p>Tipo:
+            <span *ngFor="let type of pokemon.types; let i = index">
+              {{ type.type.name | titlecase }}<span *ngIf="i < pokemon.types.length - 1">, </span>
+            </span>
+          </p>
+        </mat-card-content>
+      </div>
+      <div class="pokemon-image">
+        <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
+      </div>
+    </div>
+  </mat-card>
+</div>
+
   
